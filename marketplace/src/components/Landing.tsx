@@ -22,14 +22,14 @@ const LandingPage = () => {
 
   return (
     <div className="w-full flex flex-col items-start gap-4">
-      <div className="text-[40px]">BASEMINT - WHERE E-SPORTS LIVE</div>
+      {/* <div className="text-[40px]">BASEMINT - WHERE E-SPORTS LIVE</div> */}
       <div>
         <p>
-          1. Make sure to change the env NEXT_PUBLIC_AFFILIATE_ACCOUNT to your
-          own NEAR account
+          {/* 1. Make sure to change the env NEXT_PUBLIC_AFFILIATE_ACCOUNT to your
+          own NEAR account */}
         </p>
-        <p>2. On purchase, see your account pop up on the leaderboard</p>
-        <p>3. Check your wallet balance to see funds go up!</p>
+        {/* <p>2. On purchase, see your account pop up on the leaderboard</p> */}
+        {/* <p>3. Check your wallet balance to see funds go up!</p> */}
         <div className="mt-4 flex">
           <a
             target="_blank"
