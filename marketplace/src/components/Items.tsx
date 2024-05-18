@@ -1,10 +1,3 @@
-import {
-  EIconName,
-  MbDropdownMenu,
-  MbIcon,
-  MbMenuWrapper,
-  MbTab,
-} from "mintbase-ui";
 import { useState } from "react";
 import { useStoreData } from "../hooks/useStoreData";
 import { useStoreNfts } from "../hooks/useStoreNfts";
@@ -17,7 +10,6 @@ function Items({
 }: {
   showModal: (item: SelectedNft) => void;
 }): JSX.Element {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState("");
 
   const { nftsData, loading } = useStoreNfts(selectedStore);
