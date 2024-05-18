@@ -2,16 +2,24 @@ import LandingPage from "@/components/Landing";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mintbase Simple Marketplace Example",
+  title: "Basemint - Where E-sports Live",
   description: "Simple Marketplace",
   openGraph: {
-    images: ['https://i.imgur.com/FjcUss9.png']
+    images: ['https://bafkreiabag3ztnhe5pg7js4bj6sxuvkz3sdf76cjvcuqjoidvnfjz7vwrq.ipfs.dweb.link/']
   }
 };
 
 export default function Home() {
   return (
-    <main className="px-2 sm:px-8 md:px-24 py-12">
+    <main
+      className="px-2 sm:px-8 md:px-24 py-12"
+      style={{
+        backgroundImage: 'url(/1.png)', 
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh' 
+      }}
+    >
       <LandingPage />
     </main>
   );

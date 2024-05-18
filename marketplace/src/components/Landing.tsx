@@ -21,15 +21,45 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-start gap-4">
-      <div className="text-[40px]">Mintbase Simple Marketplace Example</div>
-      <div>
-        <p>
-          1. Make sure to change the env NEXT_PUBLIC_AFFILIATE_ACCOUNT to your
-          own NEAR account
-        </p>
-        <p>2. On purchase, see your account pop up on the leaderboard</p>
-        <p>3. Check your wallet balance to see funds go up!</p>
+    <div className="w-full flex flex-col items-start gap-4 mt-4">
+      <div className="flex items-center gap-4 w-full">
+        <img 
+          src="/iconclash.png" 
+          alt="Description of image" 
+          style={{
+            width: '30%', 
+            borderRadius: '10px'
+          }}
+        />
+        <img 
+          src="/twitch.png" 
+          alt="Description of image" 
+          style={{
+            width: '30%', 
+            borderRadius: '10px'
+          }}
+        />
+         <img 
+          src="/betbetbet.png" 
+          alt="Description of image" 
+          style={{
+            width: '30%', 
+            borderRadius: '10px'
+          }}
+        />
+        {/* <h1 style={{ fontSize: '3rem', fontWeight: 'bold' }}>Your New Basemint</h1> */}
+      </div>
+      <div
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+          borderRadius: '10px', 
+          padding: '20px',
+          color: 'black', 
+          fontFamily: 'Arial',
+          fontWeight: 'bold'
+        }}
+      >
+        <p>Watch twitch and bet on games to earn points! When you reach 10N, you mint your free ticket to the next live E-Sports game directly. You can also sell it or buy one from a different user!</p>
         <div className="mt-4 flex">
           <a
             target="_blank"
@@ -40,6 +70,10 @@ const LandingPage = () => {
               label="See Leaderboard"
               size={ESize.MEDIUM}
               state={EState.ACTIVE}
+              style={{
+                backgroundColor: '#9664FF', // Replace with the exact color code
+                color: 'white'
+              }}
             />
           </a>
         </div>

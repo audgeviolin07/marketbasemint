@@ -38,7 +38,7 @@ function Items({
   return (
     <div className="w-full items-center">
       <div className="flex w-full gap-4 items-center justify-end">
-        <MbMenuWrapper setIsOpen={setMenuOpen}>
+        {/* <MbMenuWrapper setIsOpen={setMenuOpen}>
           <div
             onClick={() => setMenuOpen(!menuOpen)}
             onKeyDown={() => setMenuOpen(!menuOpen)}
@@ -48,7 +48,7 @@ function Items({
             <MbTab
               label={
                 <div className="flex space-x-8 items-center">
-                  <span>
+                  <span className="font-bold text-black">
                     {selectedStore === ""
                       ? "All Stores"
                       : stores?.find(
@@ -63,21 +63,27 @@ function Items({
                           : EIconName.ARROW_DROP_DOWN
                       }
                       size="16px"
-                      color="blue-300"
-                      darkColor="blue-100"
+                      color="black"
+                      darkColor="black"
                     />
                   </div>
                 </div>
               }
               isSmall
+              className="bg-white"
             />
           </div>
           <MbDropdownMenu
             items={storeTabs || []}
             isOpen={menuOpen}
-            className="mt-2"
+            className="mt-2 bg-white"
+            style={{
+              color: 'black',
+              fontFamily: 'Arial, sans-serif',
+              fontWeight: 'bold',
+            }}
           />
-        </MbMenuWrapper>
+        </MbMenuWrapper> */}
       </div>
 
       {/** grid */}
