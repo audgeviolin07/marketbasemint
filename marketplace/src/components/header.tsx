@@ -27,7 +27,14 @@ const Header = () => {
         </Link>
       </div>
       <div>
-        <MbButton onClick={buttonAction} label={buttonLabel} />
+        <MbButton 
+          onClick={buttonAction} 
+          label={buttonLabel}
+          style={{
+            backgroundColor: '#9664FF', // Replace with the exact color code
+            color: 'white'
+          }}
+        />
       </div>
     </div>
   );
