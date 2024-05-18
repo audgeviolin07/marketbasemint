@@ -2,7 +2,7 @@ import LandingPage from "@/components/Landing";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mintbase Simple Marketplace Example",
+  title: "Basemint - Where the Esport Crypto Market Lives ",
   description: "Simple Marketplace",
   openGraph: {
     images: ['https://i.imgur.com/FjcUss9.png']
