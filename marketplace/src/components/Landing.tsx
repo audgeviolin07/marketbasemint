@@ -22,7 +22,7 @@ const LandingPage = () => {
 
   return (
     <div className="w-full flex flex-col items-start gap-4">
-      <div className="text-[40px]">Basemint - Where The E-sports Market Lives </div>
+      <div className="text-[40px]">BASEMINT - WHERE E-SPORTS LIVE</div>
       <div>
         <p>
           1. Make sure to change the env NEXT_PUBLIC_AFFILIATE_ACCOUNT to your
