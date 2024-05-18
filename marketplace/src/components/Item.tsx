@@ -21,7 +21,7 @@ function Item({
 
   return (
     <div
-      className="p-2 bg-black bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 rounded-xl shadow-xl cursor-pointer"
+      className="p-2 bg-white bg-opacity-85 hover:bg-opacity-20 transition-all duration-300 rounded-xl shadow-xl cursor-pointer"
       onClick={() => showModal({ metadataId: metadata_id })}
     >
       <div className="w-full relative">
@@ -52,7 +52,7 @@ function LoadingItem(): JSX.Element {
     <>
       {products.map((productKey) => (
         <div key={productKey} className="flex items-center justify-center ">
-          <div className="w-full h-72 bg-slate-900 animate-pulse rounded-xl shadow-xl" />
+          <div className="w-full h-72 bg-white animate-pulse rounded-xl shadow-xl" />
         </div>
       ))}
     </>
