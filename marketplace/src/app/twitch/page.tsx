@@ -27,7 +27,7 @@ export default function Twitch() {
 
   const myCustomContractCall: NearContractCall<ExecuteArgsResponse> = {
     signerId: activeAccountId!,
-    contractAddress: "adamo.testnet",
+    contractAddress: "adamomarali.near",
     methodName: "twitch_engagement",
     args: {},
     gas: MAX_GAS,
