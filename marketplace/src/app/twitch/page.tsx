@@ -9,7 +9,6 @@ import {
   NearContractCall,
   NearExecuteOptions,
 } from "@mintbase-js/sdk";
-import { MbButton } from "mintbase-ui";
 import React, { useEffect, useState } from "react";
 
 const streamer = "gronkhtv";
@@ -67,36 +66,55 @@ export default function Twitch() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "50px", // Add padding to create space around the content
+        flexDirection: "column",
+        padding: "50px",
       }}
     >
-      <div className="flex flex-col gap-3 items-center w-full h-[90%]">
-        <div className="flex flex-row justify-center items-center w-full h-[90%] ml-0 mt-auto">
-          <iframe
-            src={`https://player.twitch.tv/?channel=${streamer}&parent=localhost`}
-            height="100%"
-            width="70%"
-            style={{
-              border: "none",
-              overflow: "hidden",
-            }}
-            allowFullScreen={true}
-          ></iframe>
-          <iframe
-            id="chat_embed"
-            src={`https://www.twitch.tv/embed/${streamer}/chat?parent=localhost`}
-            height="100%"
-            width="30%"
-          >
-            ``
-          </iframe>
-        </div>
-        <div>
-          {seconds > 10 && (
-            <MbButton onClick={receiveNear} label="Collect Near" />
-          )}
-        </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "80%",
+          margin: "0 auto",
+        }}
+      >
+        <iframe
+          src={`https://player.twitch.tv/?channel=${streamer}&parent=localhost`}
+          height="100%"
+          width="70%"
+          style={{
+            border: "none",
+            overflow: "hidden",
+          }}
+          allowFullScreen={true}
+        ></iframe>
+        <iframe
+          id="chat_embed"
+          src={`https://www.twitch.tv/embed/${streamer}/chat?parent=localhost`}
+          height="100%"
+          width="30%"
+        ></iframe>
       </div>
+      {seconds > 5 && (
+        <button
+          style={{
+            backgroundColor: "#9664FF",
+            color: "white",
+            border: "none",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            marginTop: "20px",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+          onClick={receiveNear}
+        >
+          Recieve Near
+        </button>
+      )}
     </div>
   );
 }
