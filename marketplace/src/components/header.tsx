@@ -85,11 +85,11 @@ const Header = () => {
             BASEMINT : WHERE E-SPORTS LIVE
           </div>
         </Link>
-        <Link href="/" className="flex gap-2 items-center">
+        <Link href="/twitch" className="flex gap-2 items-center">
           <Image src="/output.png" alt="Twitch Logo" width={48} height={48} />
         </Link>
-        <Link href="/" className="flex gap-2 items-center">
-          <Image src="/bet.png" alt="Twitch Logo" width={48} height={48} />
+        <Link href="/bet" className="flex gap-2 items-center">
+          <Image src="/bet.png" alt="Betting Logo" width={48} height={48} />
         </Link>
         <MbButton onClick={sendNear} label={"Send Near"} />
       </div>
