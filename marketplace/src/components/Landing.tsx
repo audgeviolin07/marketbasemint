@@ -21,10 +21,10 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-start gap-4 mt-4">
-      <div className="flex items-center gap-4 w-full">
+    <div className="w-full flex flex-col items-center gap-4 mt-4">
+      <div className="flex justify-between items-center gap-5 w-full">
         <img 
-          src="/iconclash.png" 
+          src="/king_logo.png" 
           alt="Description of image" 
           style={{
             width: '30%', 
@@ -35,7 +35,7 @@ const LandingPage = () => {
           src="/twitch.png" 
           alt="Description of image" 
           style={{
-            width: '30%', 
+            width: '33%', 
             borderRadius: '10px'
           }}
         />
@@ -43,7 +43,7 @@ const LandingPage = () => {
           src="/betbetbet.png" 
           alt="Description of image" 
           style={{
-            width: '30%', 
+            width: '33%', 
             borderRadius: '10px'
           }}
         />
@@ -52,7 +52,7 @@ const LandingPage = () => {
       <div
         style={{
           backgroundColor: 'rgba(255, 255, 255, 0.8)', 
-          borderRadius: '10px', 
+          borderRadius: '20px', 
           padding: '20px',
           color: 'black', 
           fontFamily: 'Arial',

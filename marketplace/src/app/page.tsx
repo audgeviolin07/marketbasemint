@@ -14,7 +14,7 @@ export default function Home() {
     <main
       className="px-2 sm:px-8 md:px-24 py-12"
       style={{
-        backgroundImage: 'url(/1.png)', 
+        backgroundImage: 'url(/background5.jpg)', 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '100vh' 
