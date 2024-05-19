@@ -1486,29 +1486,49 @@ class NearPromise {
   }
 }
 
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class, _class2;
-let HelloNear = (_dec = NearBindgen({}), _dec2 = view(), _dec3 = call({}), _dec4 = view(), _dec5 = call({}), _dec6 = call({}), _dec7 = call({}), _dec8 = view(), _dec(_class = (_class2 = class HelloNear {
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _class, _class2;
+BigInt("1000000000000000000000"); // 0.001Ⓝ
+let HelloNear = (_dec = NearBindgen({}), _dec2 = view(), _dec3 = call({}), _dec4 = view(), _dec5 = call({}), _dec6 = call({}), _dec7 = call({}), _dec8 = view(), _dec9 = call({}), _dec10 = view(), _dec(_class = (_class2 = class HelloNear {
   users = new UnorderedMap('users');
+  creators = new UnorderedMap('creators');
+
+  // @call({payableFunction:true})
+  // create({prefix}:{prefix: String}) {
+  //   const account_id = `${prefix}.${near.currentAccountId()}`
+
+  //   NearPromise.new(account_id)
+  //   .createAccount()
+  //   .transfer(MIN_STORAGE)
+  // }
+
   get_hello() {
     return "Hello, Near!";
   }
   add_user() {
     let account_id = signerAccountId();
     log(`Adding user ${account_id}`);
-    this.users.set(account_id, 0);
+    this.users.set(account_id, {
+      creator: false,
+      nearEarned: 0,
+      engagement: 0,
+      nfts: new UnorderedMap('nfts')
+    });
   }
   get_user_points() {
     let account_id = signerAccountId();
-    return this.users.get(account_id);
+    return this.users.get(account_id).engagement;
   }
   add_points({
     points
   }) {
     let account_id = signerAccountId();
-    let curr_points = this.users.get(account_id);
-    if (curr_points != null) {
+    let user = this.users.get(account_id);
+    if (user != null) {
       log(`Incrementing user points. User: ${account_id}`);
-      this.users.set(account_id, curr_points + points);
+      this.users.set(account_id, {
+        ...user,
+        engagement: user.engagement + points
+      });
     }
   }
   transfer({
@@ -1520,9 +1540,52 @@ let HelloNear = (_dec = NearBindgen({}), _dec2 = view(), _dec3 = call({}), _dec4
     return NearPromise.new(signerAccountId()).transfer(BigInt(1 * 10 ** 24));
   }
   get_wallet_balance() {
+    //only gets the contract users balance
     return accountBalance() / BigInt(10 ** 24);
   }
-}, (_applyDecoratedDescriptor(_class2.prototype, "get_hello", [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, "get_hello"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "add_user", [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, "add_user"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "get_user_points", [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, "get_user_points"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "add_points", [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, "add_points"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "transfer", [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, "transfer"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "twitch_engagement", [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, "twitch_engagement"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "get_wallet_balance", [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, "get_wallet_balance"), _class2.prototype)), _class2)) || _class);
+  add_creator({
+    account_id
+  }) {
+    this.creators.set(account_id, {
+      nfts: new UnorderedMap('nfts'),
+      socials: new UnorderedMap('socials'),
+      name: ""
+    });
+  }
+  get_creators() {
+    return this.creators.keys({
+      start: 0,
+      limit: null
+    });
+  }
+}, (_applyDecoratedDescriptor(_class2.prototype, "get_hello", [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, "get_hello"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "add_user", [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, "add_user"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "get_user_points", [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, "get_user_points"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "add_points", [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, "add_points"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "transfer", [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, "transfer"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "twitch_engagement", [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, "twitch_engagement"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "get_wallet_balance", [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, "get_wallet_balance"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "add_creator", [_dec9], Object.getOwnPropertyDescriptor(_class2.prototype, "add_creator"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "get_creators", [_dec10], Object.getOwnPropertyDescriptor(_class2.prototype, "get_creators"), _class2.prototype)), _class2)) || _class);
+function get_creators() {
+  const _state = HelloNear._getState();
+  if (!_state && HelloNear._requireInit()) {
+    throw new Error("Contract must be initialized");
+  }
+  const _contract = HelloNear._create();
+  if (_state) {
+    HelloNear._reconstruct(_contract, _state);
+  }
+  const _args = HelloNear._getArgs();
+  const _result = _contract.get_creators(_args);
+  if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(HelloNear._serialize(_result, true));
+}
+function add_creator() {
+  const _state = HelloNear._getState();
+  if (!_state && HelloNear._requireInit()) {
+    throw new Error("Contract must be initialized");
+  }
+  const _contract = HelloNear._create();
+  if (_state) {
+    HelloNear._reconstruct(_contract, _state);
+  }
+  const _args = HelloNear._getArgs();
+  const _result = _contract.add_creator(_args);
+  HelloNear._saveToStorage(_contract);
+  if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(HelloNear._serialize(_result, true));
+}
 function get_wallet_balance() {
   const _state = HelloNear._getState();
   if (!_state && HelloNear._requireInit()) {
@@ -1619,5 +1682,5 @@ function get_hello() {
   if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(HelloNear._serialize(_result, true));
 }
 
-export { add_points, add_user, get_hello, get_user_points, get_wallet_balance, transfer, twitch_engagement };
+export { add_creator, add_points, add_user, get_creators, get_hello, get_user_points, get_wallet_balance, transfer, twitch_engagement };
 //# sourceMappingURL=hello_near.js.map
