@@ -65,7 +65,7 @@
 
 
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 export default function Bet() {
   const games = ['Mohamed Light vs. TRB Wallace', 'Guriko vs. CAL Sub', 'Vitor75 vs. SandBox'];
