@@ -88,9 +88,16 @@ const Header = () => {
         <Link href="/twitch" className="flex gap-2 items-center">
           <Image src="/output.png" alt="Twitch Logo" width={48} height={48} />
         </Link>
+
+
         <Link href="/bet" className="flex gap-2 items-center">
           <Image src="/bet.png" alt="Betting Logo" width={48} height={48} />
         </Link>
+
+        <Link href="/players" className="flex gap-2 items-center">
+          <Image src="/players.png" alt="Players Logo" width={48} height={48} />
+        </Link>
+
         <MbButton onClick={sendNear} label={"Send Near"} />
       </div>
       <div>
