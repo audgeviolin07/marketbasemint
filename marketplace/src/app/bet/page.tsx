@@ -17,9 +17,24 @@ export default function Bet() {
         textAlign: 'center',
     }}
     >
-    <h1 style={{ color: 'white', fontSize: '2em', fontWeight: 'bold' }}>Below are today's bets in the community! Come back often, as these refresh daily!</h1>
+    <div
+        style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+            borderRadius: '20px', 
+            padding: '20px',
+            margin: '20px 0',
+            fontFamily: 'Arial, sans-serif',
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+            textAlign: 'center',
+        }}
+        >
+        <h1 style={{ color: 'black', fontSize: '2em', fontWeight: 'bold' }}>Welcome to the Clash Royale Betting Community!</h1>
+        <h1 style={{ color: 'black', fontSize: '2em', fontWeight: 'bold' }}>Below are today's bets in the community! Come back often, as these refresh daily!</h1>
+    </div>
     {games.map((game, index) => {
-    const [personA, personB] = game.split(' vs. '); // Assuming the game string is in the format "Person A vs. Person B"
+    const [personA, personB] = game.split(' vs. '); 
+    const personAData = ['https://royaleapi.com/player/G9YV9GR8R?lang=en', 'https://royaleapi.com/player/2LJ0ULYCC?lang=en', 'https://royaleapi.com/player/8LJ92G8UG?lang=en'];
+    const personBData = ['https://royaleapi.com/player/YJPPGL00?lang=en', 'https://royaleapi.com/player/U890Q9UQ/battles?lang=en', 'https://royaleapi.com/player/LJP9CU0PG?lang=en'];
     return (
         <div
         key={index}
@@ -38,8 +53,8 @@ export default function Bet() {
         </h3>
         <button className="button-over">Over</button>
         <button className="button-under">Under</button>
-        <a href="#" style={{ color: 'red', textDecoration: 'none', display: 'block', marginTop: '10px' }}>Learn more about {personA}</a>
-        <a href="#" style={{ color: 'blue', textDecoration: 'none', display: 'block', marginTop: '10px' }}>Learn more about {personB}</a>
+        <a href={personAData[index]} style={{ color: 'red', textDecoration: 'none', display: 'block', marginTop: '10px' }}>Learn more about {personA}</a>
+        <a href={personBData[index]} style={{ color: 'blue', textDecoration: 'none', display: 'block', marginTop: '10px' }}>Learn more about {personB}</a>
         </div>
     );
     })}
