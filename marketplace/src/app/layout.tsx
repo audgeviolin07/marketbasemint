@@ -1,3 +1,4 @@
+
 "use client";
 
 import "@near-wallet-selector/modal-ui/styles.css";
@@ -13,21 +14,18 @@ import { SocialMedias } from "@/components/Social";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const isDev = process.env.NEXT_PUBLIC_ENV === 'dev'
-
-export const getCallbackUrl = () => {
-  let callbackUrl = ''
+function getCallbackUrl(isDev: boolean) {
+  let callbackUrl = '';
 
   if (typeof window !== 'undefined') {
     callbackUrl =
       isDev || window?.location?.host.includes('localhost')
         ? `http://${window?.location.host}`
-        : `}`
+        : ``; // Fixed the callback URL ending
   }
 
-  return callbackUrl
+  return callbackUrl;
 }
-
 
 export default function RootLayout({
   children,
@@ -35,15 +33,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const queryClient = new QueryClient();
+  const isDev = process.env.NEXT_PUBLIC_ENV === 'dev';
 
   mbjs.config({
     network: process.env.NEXT_PUBLIC_NETWORK || 'testnet'
-  })
+  });
 
   const MintbaseWalletSetup = {
     contractAddress: "hellovirtualworld.mintspace2.testnet",
     network: "testnet",
-    callbackUrl: getCallbackUrl(),
+    callbackUrl: getCallbackUrl(isDev),
   };
 
   return (
