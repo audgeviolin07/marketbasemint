@@ -36,7 +36,8 @@
     "react-dom": "^18",
     "react-github-btn": "^1.4.0",
     "react-query": "^3.39.3",
-    "react-share": "^5.1.0"
+    "react-share": "^5.1.0",
+    "@next/font": "13.1.1,"
   },
   "devDependencies": {
     "@types/node": "^20",
