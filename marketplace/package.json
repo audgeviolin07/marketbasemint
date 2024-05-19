@@ -25,7 +25,10 @@
     "@mintbase-js/auth": "^0.6.0-beta.5",
     "@mintbase-js/data": "0.5.4-beta.0",
     "@mintbase-js/react": "0.5.4-beta.0",
+    "@mintbase-js/rpc": "^0.6.0-beta.5",
     "@mintbase-js/sdk": "0.5.4-beta.0",
+    "@mintbase-js/storage": "^0.6.0-beta.5",
+    "@next/font": "13.1.1",
     "big.js": "^6.2.1",
     "graphql": "^16.8.1",
     "mintbase-ui": "^1.0.2",
@@ -36,8 +39,7 @@
     "react-dom": "^18",
     "react-github-btn": "^1.4.0",
     "react-query": "^3.39.3",
-    "react-share": "^5.1.0",
-    "@next/font": "13.1.1"
+    "react-share": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
