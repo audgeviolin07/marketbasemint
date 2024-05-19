@@ -54,7 +54,7 @@ const Header = () => {
     const options: NearExecuteOptions = {
       // account
       wallet,
-      callbackUrl: "https://adamomarali.com",
+      callbackUrl: "http://localhost:3000",
     };
 
     // call sign with options,
