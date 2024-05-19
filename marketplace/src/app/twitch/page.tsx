@@ -93,7 +93,7 @@ export default function Twitch() {
         ></iframe>
         <iframe
           id="chat_embed"
-          src={`https://player.twitch.tv/?channel=${streamer}&parent=marketbasemint.vercel.app`}
+          src={`https://www.twitch.tv/embed/${streamer}/chat?parent=marketbasemint.vercel.app`}
           height="100%"
           width="30%"
         ></iframe>
