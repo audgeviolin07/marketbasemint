@@ -38,8 +38,8 @@ export default function RootLayout({
   });
 
   const MintbaseWalletSetup = {
-    contractAddress: "hellovirtualworld.mintspace2.testnet",
-    network: "testnet",
+    contractAddress: process.env.NEXT_PUBLIC_CONTRACT_NAME,
+    network: "mainnet",
     callbackUrl: getCallbackUrl(isDev),
   };
 
