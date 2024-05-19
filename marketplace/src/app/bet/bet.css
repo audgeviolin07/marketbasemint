@@ -1,0 +1,29 @@
+.button-over {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #069925;
+    color: white;
+    font-family: 'Arial, sans-serif';
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-over:hover {
+    background-color: #034e15;
+  }
+  
+  .button-under {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    font-family: 'Arial, sans-serif';
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-under:hover {
+    background-color: #972b1d;
+  }
