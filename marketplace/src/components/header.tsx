@@ -65,10 +65,6 @@ const Header = () => {
   };
 
   function sendNear() {
-    //   const contractId = 'adam-test.testnet';
-    //   const methodName = 'twitch_engagement';
-    //   const args = {};
-
     makeSmartContractCall()
       .then((res: FinalExecutionOutcome) =>
         console.log("got transaction result:", res)
@@ -100,7 +96,7 @@ const Header = () => {
 
         <MbButton onClick={sendNear} label={"Send Near"} />
       </div>
-      <div>
+      <div className="flex row gap-4">
         <MbButton onClick={buttonAction} label={buttonLabel} />
       </div>
     </div>

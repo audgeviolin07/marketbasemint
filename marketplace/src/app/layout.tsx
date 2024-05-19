@@ -1,4 +1,3 @@
-
 "use client";
 
 import "@near-wallet-selector/modal-ui/styles.css";
@@ -10,16 +9,15 @@ import { MintbaseWalletContextProvider } from "@mintbase-js/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Header from "@/components/header";
 import { mbjs } from "@mintbase-js/sdk";
-import { SocialMedias } from "@/components/Social";
 
 const inter = Inter({ subsets: ["latin"] });
 
 function getCallbackUrl(isDev: boolean) {
-  let callbackUrl = '';
+  let callbackUrl = "";
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     callbackUrl =
-      isDev || window?.location?.host.includes('localhost')
+      isDev || window?.location?.host.includes("localhost")
         ? `http://${window?.location.host}`
         : ``; // Fixed the callback URL ending
   }
@@ -33,15 +31,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const queryClient = new QueryClient();
-  const isDev = process.env.NEXT_PUBLIC_ENV === 'dev';
+  const isDev = process.env.NEXT_PUBLIC_ENV === "dev";
 
   mbjs.config({
-    network: process.env.NEXT_PUBLIC_NETWORK || 'testnet'
+    network: process.env.NEXT_PUBLIC_NETWORK || "testnet",
   });
 
   const MintbaseWalletSetup = {
-    contractAddress: "hellovirtualworld.mintspace2.testnet",
-    network: "testnet",
+    contractAddress: process.env.NEXT_PUBLIC_CONTRACT_NAME,
+    network: "mainnet",
     callbackUrl: getCallbackUrl(isDev),
   };
 
@@ -50,7 +48,7 @@ export default function RootLayout({
       <MintbaseWalletContextProvider {...MintbaseWalletSetup}>
         <html lang="en">
           <body className={inter.className}>
-            <SocialMedias />
+            {/* <SocialMedias /> */}
             <Header />
             <div className="min-h-screen">{children}</div>
           </body>
