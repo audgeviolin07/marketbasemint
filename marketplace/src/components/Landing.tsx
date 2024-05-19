@@ -6,6 +6,7 @@ import { useState } from "react";
 import { SelectedNft } from "@/types/types";
 import BuyModal from "./BuyModal/BuyModal";
 
+
 const LandingPage = () => {
   const [showBuyModal, setShowBuyModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState({} as SelectedNft);
@@ -22,33 +23,37 @@ const LandingPage = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-4 mt-4">
-      <div className="flex justify-between items-center gap-5 w-full">
+      <div className="flex justify-between items-center gap-4 w-full" style={{ marginBottom: '30px' }}>
         <img 
           src="/king_logo.png" 
           alt="Description of image" 
           style={{
-            width: '30%', 
-            borderRadius: '10px'
+            height: '350px', 
           }}
         />
-        <img 
-          src="/twitch.png" 
-          alt="Description of image" 
-          style={{
-            width: '33%', 
-            borderRadius: '10px'
-          }}
-        />
-         <img 
-          src="/betbetbet.png" 
-          alt="Description of image" 
-          style={{
-            width: '33%', 
-            borderRadius: '10px'
-          }}
-        />
-        {/* <h1 style={{ fontSize: '3rem', fontWeight: 'bold' }}>Your New Basemint</h1> */}
+        <a href="/twitch">
+          <img 
+            src="/twitch.png" 
+            alt="Description of image" 
+            style={{
+              height: '250px', 
+              borderRadius: '10px'
+            }}
+          />
+        </a>
+        <a href="/bet">
+          <img 
+            src="/betbetbet.png" 
+            alt="Description of image" 
+            style={{
+              height: '250px', 
+              borderRadius: '10px'
+            }}
+          />
+        </a>
       </div>
+
+
       <div
         style={{
           backgroundColor: 'rgba(255, 255, 255, 0.8)', 
@@ -59,7 +64,7 @@ const LandingPage = () => {
           fontWeight: 'bold'
         }}
       >
-        <p>Watch twitch and bet on games to earn points! When you reach 10N, you mint your free ticket to the next live E-Sports game directly. You can also sell it or buy one from a different user!</p>
+        <p>Watch twitch and bet on games to earn tokens! When you reach 10N, you mint your free ticket to the next live E-Sports game directly. You can also sell it or buy one from a different user!</p>
         <div className="mt-4 flex">
           <a
             target="_blank"
