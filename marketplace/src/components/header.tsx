@@ -27,7 +27,7 @@ const Header = () => {
     signerId: activeAccountId!,
 
     // contract address
-    contractAddress: "adam-test.testnet",
+    contractAddress: process.env.NEXT_PUBLIC_CONTRACT_NAME!,
 
     // the contract method name
     methodName: "get_hello",
@@ -54,7 +54,7 @@ const Header = () => {
     const options: NearExecuteOptions = {
       // account
       wallet,
-      callbackUrl: "http://localhost:3000",
+      callbackUrl: process.env.NEXT_PUBLIC_SITE,
     };
 
     // call sign with options,
@@ -85,7 +85,6 @@ const Header = () => {
           <Image src="/output.png" alt="Twitch Logo" width={48} height={48} />
         </Link>
 
-
         <Link href="/bet" className="flex gap-2 items-center">
           <Image src="/bet.png" alt="Betting Logo" width={48} height={48} />
         </Link>
@@ -94,7 +93,7 @@ const Header = () => {
           <Image src="/players.png" alt="Players Logo" width={48} height={48} />
         </Link>
 
-        <MbButton onClick={sendNear} label={"Send Near"} />
+        {/* <MbButton onClick={sendNear} label={"Send Near"} /> */}
       </div>
       <div className="flex row gap-4">
         <MbButton onClick={buttonAction} label={buttonLabel} />

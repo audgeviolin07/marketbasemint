@@ -27,7 +27,7 @@ export default function Twitch() {
 
   const myCustomContractCall: NearContractCall<ExecuteArgsResponse> = {
     signerId: activeAccountId!,
-    contractAddress: "adamomarali.near",
+    contractAddress: process.env.NEXT_PUBLIC_CONTRACT_NAME!,
     methodName: "twitch_engagement",
     args: {},
     gas: MAX_GAS,
@@ -39,7 +39,7 @@ export default function Twitch() {
     const options: NearExecuteOptions = {
       // account
       wallet,
-      callbackUrl: "http://localhost:3000",
+      callbackUrl: process.env.NEXT_PUBLIC_SITE,
     };
 
     // call sign with options,
