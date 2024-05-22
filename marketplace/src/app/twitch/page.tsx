@@ -98,7 +98,7 @@ export default function Twitch() {
           width="30%"
         ></iframe>
       </div>
-      {seconds > 5 && (
+      {/* {seconds > 5 && (
         <button
           style={{
             backgroundColor: "#9664FF",
@@ -114,7 +114,7 @@ export default function Twitch() {
         >
           Recieve Near
         </button>
-      )}
+      )} */}
     </div>
   );
 }
